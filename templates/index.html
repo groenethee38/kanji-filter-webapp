@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block section %}
+{% for list in jlpt_n5_data, jlpt_n4_data, jlpt_n3_data, jlpt_n2_data %}
+    <table>
+        <tr>
+            <th>#</th>
+            <th>Kanji</th>
+            <th>Onyomi</th>
+            <th>Kunyomi</th>
+            <th>Kanji Meaning</th>
+            <th>Level</th>
+        </tr>
+        {% for row in list %}
+        <tr>
+            <td>{{ row[0] }}</td>
+            <td>{{ row[1] }}</td>
+            <td>{{ row[2] }}</td>
+            <td>{{ row[3] }}</td>
+            <td>{{ row[4] }}</td>
+            <td>{{ row[5][7: -2] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+{% endfor %}
+{% endblock %}

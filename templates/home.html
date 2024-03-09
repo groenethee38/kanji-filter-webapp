@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block section %}
+    <button class="btn" onclick="applyFilter('None')">No filter</button>
+    <button class="btn" onclick="applyFilter('JLPT N5')">JLPT N5</button>
+    <button class="btn" onclick="applyFilter('JLPT N4')">JLPT N4</button>
+    <button class="btn" onclick="applyFilter('JLPT N3')">JLPT N3</button>
+    <button class="btn" onclick="applyFilter('JLPT N2')">JLPT N2</button> 
+    <h2 class="current-filter" id="current_filter">Current filter: None</h2>
+
+    <textarea class="col-1-2 text-area-container" id="input_text"></textarea>
+    <p class="col-1-2 text-area-container output-text" id="output_text"></p>
+    
+    <div class="example-article">
+        <h2>Example article</h2>
+        <p>東海道新幹線 積雪のため 名古屋～京都間で速度落とし運転</p>        
+        <p>2024年1月24日 9時09分</p>
+        <p>JR東海によりますと、東海道新幹線は滋賀県米原市付近での積雪のため、始発から名古屋と京都の間の一部の区間で速度を落として運転します。また、列車に付いた雪を確認する作業を下りは新大阪駅で、上りは名古屋駅で行うということで、この区間の通過に最大で10分程度の遅れが見込まれています。</p>
+        <p>JR東海は今後の雪の状況によっては遅れが拡大する可能性があるとして、ホームページなどで最新の運行情報を確認するよう呼びかけています。</p>
+    </div>
+{% endblock %}
