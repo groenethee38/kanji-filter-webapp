@@ -1,16 +1,4 @@
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+* {
   margin: 0;
   padding: 0;
   border: 0;
@@ -22,7 +10,7 @@ time, mark, audio, video {
 
 body {
     min-height: 100%;
-    background-color: rgb(14, 14, 14);
+    background-color: #181818;
     margin: 0;
     display: flex;
     flex-direction: column;
@@ -63,11 +51,12 @@ body {
 /* Nav */
 
 .primary-nav {
-    font-size: 24px;
+    font-size: 18px;
     font-weight: 400;
     letter-spacing: .5px;
     text-transform: uppercase;
     text-align: right;
+    font-weight: 600;
 }
 
 .primary-nav li {
@@ -76,6 +65,10 @@ body {
 }
 .primary-nav li:last-child {
     margin-right: 0;
+}
+
+.primary-nav li a:hover {
+    color: green;
 }
 
 /* Fonts & Buttons & Textarea */
@@ -88,26 +81,29 @@ h1, h2, p, a, table {
 a {
     text-decoration: none;
 }
-a:hover {
-    color: green;
+
+.header {
+    font-size: 44px;
+    background-color: #181818;
+    padding: 28px 0;
 }
 
-.hero {
-    font-size: 72px;
-    background-color: rgb(14, 14, 14);
-    padding: 20px 0 20px 0;
+.header-title a {
+    color: #ffffff;
+    transition: all 0.3s;
+    text-transform: uppercase;
 }
-.hero h1 {
-    font-family: 'Maven Pro', sans-serif;
+
+.header-title a:hover {
+    color: green;
 }
 
 .footer {
     font: 'lato';
-    padding-top: 18px;
-    padding-bottom: 18px;
+    padding: 34px 0;
 }
 .footer p {
-    color: rgb(66, 66, 66);
+    color: rgb(85, 85, 85);
 }
 
 .btn {
@@ -134,7 +130,7 @@ a:hover {
 
 .text-area-container {
     color: white;
-    background-color: rgb(14, 14, 14);
+    background-color: #181818;
     display: inline-block;
     vertical-align: top;
     border: 0px solid;
@@ -146,7 +142,7 @@ a:hover {
     margin: 0px;
     font-size: 25px;
     font-family: 'Lato', sans-serif;
-    overflow: auto;
+    overflow-x: unset;
     word-wrap: break-word;
     resize: none;
 }
@@ -201,4 +197,21 @@ th {
 
 .example-article p {
     font-size: 28px;
+}
+
+.kanji {
+    position: relative;
+    display: inline-block;
+}
+
+.kanji:hover::after {
+    content: attr(data-hover);
+    position: absolute;
+    left: 0;
+    top: 100%;
+    background-color: #000000;
+    color: #fff;
+    padding: 5px;
+    border-radius: 3px;
+    z-index: 99999;
 }

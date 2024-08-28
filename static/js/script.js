@@ -29,7 +29,16 @@ function applyFilter(filtertype) {
         for (var line of lines) {
             var updatedLine = '';
             for (var char of line) {
-                updatedLine += (kana_characters_list.includes(char) ? char : filterList.includes(char) ? '<span class="right-kanji-text">' + char + '</span>' : '<span class="wrong-kanji-text">' + char + '</span>' ); 
+                var hoverText = '';
+                if (kanjiData[char]) {
+                    hoverText = `Onyomi: ${kanjiData[char].onyomi} Kunyomi: ${kanjiData[char].kunyomi} Meaning: ${kanjiData[char].meaning} Level: ${kanjiData[char].level}`;
+                }
+                
+                updatedLine += (kana_characters_list.includes(char) ? char : 
+                filterList.includes(char) ? 
+                `<span class="right-kanji-text kanji" data-hover="${hoverText}">${char}</span>` : 
+                `<span class="wrong-kanji-text kanji" data-hover="${hoverText}">${char}</span>`
+                );
             }
         filteredLines.push(updatedLine);
         }
