@@ -49,4 +49,25 @@ function applyFilter(filtertype) {
     var outputText = filteredLines.join('<br>');
     document.getElementById('output_text').innerHTML = outputText
     document.getElementById('current_filter').innerHTML = "Current filter: " + filtertype
+
+    
+    const kanjiElements = document.querySelectorAll('.kanji');
+    
+    kanjiElements.forEach(kanji => {
+        kanji.addEventListener('mouseenter', (event) => {
+            const parent = kanji.closest('.output-text');
+            const parentRect = parent.getBoundingClientRect();
+            const kanjiRect = kanji.getBoundingClientRect();
+
+            const isLeftSide = (kanjiRect.left - parentRect.left) < (parentRect.width / 2);
+
+            if (isLeftSide) {
+                kanji.style.setProperty('--tooltip-left', '0');
+                kanji.style.setProperty('--tooltip-right', 'auto');
+            } else {
+                kanji.style.setProperty('--tooltip-left', 'auto');
+                kanji.style.setProperty('--tooltip-right', '0');
+            }
+        });
+    });
 }

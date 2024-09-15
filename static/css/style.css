@@ -10,7 +10,7 @@
 
 body {
     min-height: 100%;
-    background-color: #181818;
+    background-color: #000;
     margin: 0;
     display: flex;
     flex-direction: column;
@@ -84,7 +84,8 @@ a {
 
 .header {
     font-size: 44px;
-    background-color: #181818;
+    background: #000000;
+    border-bottom: 1px solid #1b1b1b ;
     padding: 28px 0;
 }
 
@@ -103,7 +104,7 @@ a {
     padding: 34px 0;
 }
 .footer p {
-    color: rgb(85, 85, 85);
+    color: #242424;
 }
 
 .btn {
@@ -153,6 +154,7 @@ a {
 
 .output-text {
     float: right;
+    overflow: auto;
 }
 
 .right-kanji-text {
@@ -207,7 +209,8 @@ th {
 .kanji:hover::after {
     content: attr(data-hover);
     position: absolute;
-    left: 0;
+    left: var(--tooltip-left, auto);
+    right: var(--tooltip-right, auto);
     top: 100%;
     background-color: #000000;
     color: #fff;
